@@ -6,4 +6,6 @@
 <h3>Project Notes: </h3>
 <%= @project.notes %><br>
 
-<%= link_to "Edit Project", edit_project_path(@project) %></button>
+<%= link_to "Edit Project", edit_project_path(@project) %><br>
+<%= link_to "Delete Project", project_path(@project), method: :delete %>
+
