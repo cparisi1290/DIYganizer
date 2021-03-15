@@ -7,6 +7,11 @@ class SessionsController < ApplicationController
         @user = User.new
     end
 
+    def destroy 
+        session.delete(:user_id)
+        redirect_to '/'
+    end
+
     def omniauth
         user = User.from_omniauth(request.env['omniauth.auth'])
         if user.valid?

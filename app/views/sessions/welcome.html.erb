@@ -1,5 +1,9 @@
 <h1>Welcome to DIYganizer</h1>
 
-<h3> <%= link_to 'Log In', '/login' %> OR <%= link_to 'Sign Up', '/signup' %> to get started </h3>
-<%= button_to "Log in with Google", '/auth/google_oauth2'  %>
 
+  <% if !logged_in? %>
+    <h3> <%= link_to 'Log In', '/login' %> OR <%= link_to 'Sign Up', '/signup' %> to get started </h3>
+    <%= button_to "Log in with Google", '/auth/google_oauth2'  %>
+<% else %>
+    <%= button_to "Logout", logout_path, method: 'delete' %>
+<% end %>
