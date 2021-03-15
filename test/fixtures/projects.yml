@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  status: MyString
+  est_date_to_complete: 2021-03-15 13:45:06
+  notes: MyText
+  user_id: 1
+  room_id: 1
+
+two:
+  name: MyString
+  status: MyString
+  est_date_to_complete: 2021-03-15 13:45:06
+  notes: MyText
+  user_id: 1
+  room_id: 1
