@@ -1,9 +1,13 @@
-<h1>Welcome to DIYganizer</h1>
-
-
   <% if !logged_in? %>
+    <h1>Welcome to DIYganizer</h1>    
     <h3> <%= link_to 'Log In', '/login' %> OR <%= link_to 'Sign Up', '/signup' %> to get started </h3>
     <%= button_to "Log in with Google", '/auth/google_oauth2'  %>
-<% else %>
+<% else %><br>
+    <a href="/">Home</a> |
     <%= button_to "Logout", logout_path, method: 'delete' %>
+    <h1>Welcome to Your Projects Dashboard</h1>
+    <h3>What would you like to do?</h3>
+
+    <h4><%= link_to "View Your Projects", projects_path %></h4>
+    <h4><%= link_to "Create a New Project", new_project_path %></h4>
 <% end %>
