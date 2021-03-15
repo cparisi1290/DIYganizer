@@ -3,6 +3,10 @@ class SessionsController < ApplicationController
     def welcome
     end
 
+    def new 
+        @user = User.new
+    end
+
     def omniauth
         user = User.from_omniauth(request.env['omniauth.auth'])
         if user.valid?
