@@ -25,6 +25,16 @@ class ProjectsController < ApplicationController
         @project = Project.find(params[:id])
     end
 
+    def update
+        @project = Project.find(params[:id])
+        @project.update(project_params)
+        if @project.valid?
+            redirect_to projects_path 
+        else
+            render :edit 
+        end
+    end
+
     private
 
     def project_params
