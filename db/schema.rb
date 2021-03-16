@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2021_03_16_180714) do
 
-  create_table "project_tools", force: :cascade do |t|
+  create_table "builders", force: :cascade do |t|
     t.integer "project_id"
     t.integer "tool_id"
     t.datetime "created_at", precision: 6, null: false
