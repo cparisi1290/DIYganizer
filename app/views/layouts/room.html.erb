@@ -10,6 +10,10 @@
 
   <body>
     <% if logged_in? %>
+      <br><a href="/">Home</a> |
+      <a href="/rooms">All Rooms</a> |
+      <a href="/projects">All Projects</a> |
+      <%= link_to "Create a New Room", new_room_path %>
       <%= button_to "Logout", logout_path, method: 'delete' %>
     <% end %>
 

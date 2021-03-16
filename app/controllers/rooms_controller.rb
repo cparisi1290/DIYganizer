@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+    layout "room"
 
     def index
         @rooms = Room.all
