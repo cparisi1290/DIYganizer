@@ -1,2 +1,0 @@
-class ProjectTool < ApplicationRecord
-end
