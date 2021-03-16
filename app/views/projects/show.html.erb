@@ -1,12 +1,13 @@
 <h1><%= @project.name %></h1>
 
 <h3><%= @project.status %></h3>
-<h3>Completion Goal: </h3>
-<%= @project.est_date_to_complete %>
+<h3>Due Date Goal: </h3>
+<%= @project.due_date_goal %>
 <h3>Project Notes: </h3>
 <%= @project.notes %><br>
 <h3>Project Room: </h3>
-<%= @project.room_name %><br>
+    
+
 
 <%= link_to "Edit Project", edit_project_path(@project) %><br>
 <%= link_to "Delete Project", project_path(@project), method: :delete %>

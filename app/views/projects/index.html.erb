@@ -3,5 +3,6 @@
 <ul>
     <% @projects.each do |project| %>
         <h2><li><%= link_to project.name, project_path(project) %></h2></li>
+        Due Date Goal: <%= project.due_date_goal %>
     <% end %>
 </ul>

@@ -9,8 +9,10 @@ class Project < ApplicationRecord
         end
     end
 
-    def room_name
-        "#{self.room.try(:name)}"
-    end 
+    def due_date_goal
+        self.est_date_to_complete.strftime("%a, %b %d %Y")
+    end
+
+
 
 end
