@@ -5,6 +5,8 @@
 <%= @project.est_date_to_complete %>
 <h3>Project Notes: </h3>
 <%= @project.notes %><br>
+<h3>Project Room: </h3>
+<%= @project.room_name %><br>
 
 <%= link_to "Edit Project", edit_project_path(@project) %><br>
 <%= link_to "Delete Project", project_path(@project), method: :delete %>

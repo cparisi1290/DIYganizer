@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
     def new
         @project = Project.new
         @rooms = Room.all
+        @project.build_room
     end
 
     def create
@@ -51,6 +52,7 @@ class ProjectsController < ApplicationController
             :est_date_to_complete, 
             :notes, 
             :user_id, 
-            :room_id)
+            :room_id,
+            room_attributes: [:name])
     end
 end
