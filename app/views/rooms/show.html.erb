@@ -1,5 +1,15 @@
 <h1><%= @room.name %></h1>
 
+<h2>Your Projects</h2>
+<ul>
+    <%= @room.projects.each do |project| %>
+        <li><%= link_to project.name, project_path(project) %></li>
+            <p><%= project.status %></li></p>
+        <p><%= project.est_date_to_complete %></li></p>
+        <p><%= project.notes %></li></p><br><br>
+    <% end %>
+</ul>
+
 
 <%= link_to "Edit Room", edit_room_path(@room) %><br>
 <%= link_to "Delete Room", room_path(@room), method: :delete %>
