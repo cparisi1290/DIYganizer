@@ -1,5 +1,9 @@
 class Project < ApplicationRecord
     belongs_to :room
+    has_many :builders
+    has_many :tools, through: :builders
+    accepts_nested_attributes_for :tools, reject_if: proc { |attributes| attributes['name'].blank? }
+
 
     # accepts_nested_attributes_for :room
 
