@@ -3,9 +3,9 @@
 <h2>Your Projects</h2>
 <ul>
     <%= @room.projects.each do |project| %>
-        <li><%= link_to project.name, project_path(project) %></li>
-            <p><%= project.status %></li></p>
-        <p><%= project.est_date_to_complete %></li></p>
-        <p><%= project.notes %></li></p><br><br>
+        <li><%= link_to project.name, project_path(project.id) %></li>
+        <p>Status: <%= project.status %></li></p>
+        <p>Due Date Goal: <%= project.est_date_to_complete %></li></p>
+        <p>Project Notes: <%= project.notes %></li></p><br><br>
     <% end %>
 </ul>
