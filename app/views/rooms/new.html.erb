@@ -2,12 +2,13 @@
 
 <%= form_for @room do |f| %>
     <%= f.label :name %><br>
+    <%= f.text_field :name %><br>
 
     <h3>Add a Project</h3>
 
-    <%= f.fields_for @project do |p| %>
+    <%= f.fields_for :projects do |p| %>
 
-        <%= p.label :name %>
+        <%= p.label :project_name %>
         <%= p.text_field :name %><br>
 
         <%= p.label :status %>
@@ -18,6 +19,8 @@
 
         <%= p.label :project_notes %>
         <%= p.text_area :notes %><br>
+
+    <% end %>
 
     <%= f.submit %>
 <% end %>
