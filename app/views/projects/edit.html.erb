@@ -1,19 +1,5 @@
 <h1>Edit</h1>
 
-<%= form_for(@project) do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %><br>
-
-    <%= f.label :status %>
-    <%= f.select :status,options_for_select(["Not Started", "In Progress", "Complete" ]), include_blank: true  %><br>
-
-    <%= f.label :est_date_to_complete %>
-    <%= f.date_field :est_date_to_complete %><br>
-
-    <%= f.label :project_notes %>
-    <%= f.text_area :notes %><br>
-
-    <%= f.submit %>
-<% end %>
+<%= render partial: "form" %>
 
 <%= link_to "Delete Project", projects_path, method: :delete, data: { confirm: 'Are you sure?' } %>

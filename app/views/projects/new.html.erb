@@ -1,25 +1,5 @@
 <h1>Create a New Project</h1>
 
-<%= form_for(@project) do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %><br>
+<%= render partial: "form" %>
 
-    <%= f.label :status %>
-    <%= f.select :status,options_for_select(["Not Started", "In Progress", "Complete" ]), include_blank: true  %><br>
-
-    <%= f.label :est_date_to_complete %>
-    <%= f.date_field :est_date_to_complete %><br>
-
-    <%= f.label :project_notes %>
-    <%= f.text_area :notes %><br>
-
-    <h3>Select a Room</h3>
-    <%= f.collection_select :room_id, Room.all, :id, :name, :include_blank => true %> <br>
-    <h4>Or Create a New Room</h4>
-    <%= f.fields_for :room do |r| %>
-        <%= r.label :name %>
-        <%= r.text_field :name %><br>
-    <% end %>
-
-    <%= f.submit %>
-<% end %>
+    
