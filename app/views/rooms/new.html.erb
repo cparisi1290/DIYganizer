@@ -1,0 +1,23 @@
+<h1>Create a New Room</h1>
+
+<%= form_for @room do |f| %>
+    <%= f.label :name %><br>
+
+    <h3>Add a Project</h3>
+
+    <%= f.fields_for @project do |p| %>
+
+        <%= p.label :name %>
+        <%= p.text_field :name %><br>
+
+        <%= p.label :status %>
+        <%= p.select :status,options_for_select(["Not Started", "In Progress", "Complete" ]), include_blank: true  %><br>
+
+        <%= p.label :est_date_to_complete %>
+        <%= p.date_field :est_date_to_complete %><br>
+
+        <%= p.label :project_notes %>
+        <%= p.text_area :notes %><br>
+
+    <%= f.submit %>
+<% end %>
