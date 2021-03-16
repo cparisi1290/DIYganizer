@@ -11,6 +11,8 @@
   <body>
     <% if logged_in? %>
       <br><a href="/">Home</a> |
+      <a href="/rooms">All Rooms</a> |
+      <a href="/projects">All Projects</a> |
       <%= button_to "Logout", logout_path, method: 'delete' %>
     <% end %>
 
