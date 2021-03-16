@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
 
     def new
         @project = Project.new
+        @rooms = Room.all
     end
 
     def create
