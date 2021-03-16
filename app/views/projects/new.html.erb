@@ -13,5 +13,11 @@
     <%= f.label :project_notes %>
     <%= f.text_area :notes %><br>
 
+    <h3>Select a Room</h3>
+
+    <%= f.fields_for :room do |r| %>
+        <%= r.name %>
+    <% end %>
+
     <%= f.submit %>
 <% end %>
