@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/projects/order_by_project_due_date' => 'projects#order_by_project_due_date'
   resources :rooms
   resources :projects
   resources :users

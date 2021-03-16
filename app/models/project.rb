@@ -13,6 +13,8 @@ class Project < ApplicationRecord
         self.est_date_to_complete.strftime("%a, %b %d %Y")
     end
 
-
+    def self.order_by_project_due_date
+        order(est_date_to_complete: :asc)
+    end
 
 end

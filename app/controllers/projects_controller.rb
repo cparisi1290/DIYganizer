@@ -9,6 +9,11 @@ class ProjectsController < ApplicationController
         @project = Project.find(params[:id])
     end
 
+    def order_by_project_due_date
+        @projects = Project.order_by_project_due_date
+        render :index
+    end
+
     def new
         @project = Project.new
         @rooms = Room.all
