@@ -19,7 +19,22 @@
     <%= f.fields_for :room do |r| %>
         <%= r.label :name %>
         <%= r.text_field :name %><br>
+    <% end %><br>
+
+    <%= f.label "Tools:" %>
+   
+    <%= f.collection_check_boxes(:tool_ids, @tools, :id, :name) do |t| %>
+            <%= t.check_box %>
+            <%= t.label { t.text } %>
     <% end %>
+
+    <%= f.fields_for :tools do |tool| %> <br>
+        <h3> Or create a new tool: </h3> 
+            <%= tool.label :name %>
+            <%= tool.text_field :name %> 
+    <% end %>
+
+
 
     <%= f.submit %>
 <% end %>

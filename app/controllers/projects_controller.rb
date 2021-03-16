@@ -18,14 +18,20 @@ class ProjectsController < ApplicationController
         @project = Project.new
         @rooms = Room.all
         @project.build_room
+        @tools = Tool.all
+        @project.tools.build
     end
 
     def create
         @project = Project.new(project_params)
+        @tool = Tool.create(params[:project][:tools_attributes][:name])
         if @project.save
-            redirect_to project_path(@project)
+            if @tool.valid?
+                Builder.create(project_id: @project.id, tool_id: @tool.id)
+            end
+               redirect_to project_path(@project)
         else
-            render :new
+            redirect_to new_project_path
         end
     end
 
@@ -59,6 +65,8 @@ class ProjectsController < ApplicationController
             :notes, 
             :user_id, 
             :room_id,
-            room_attributes: [:name])
+            room_attributes: [:name],
+            tool_ids: [],
+            tools_attributes: [:name])
     end
 end
