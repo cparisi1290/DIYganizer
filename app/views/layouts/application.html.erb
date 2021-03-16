@@ -13,6 +13,8 @@
       <br><a href="/">Home</a> |
       <a href="/rooms">All Rooms</a> |
       <a href="/projects">All Projects</a> |
+      <%= link_to "Create a New Project", new_project_path %>
+      <%= link_to "Create a New Room", new_room_path %>
       <%= button_to "Logout", logout_path, method: 'delete' %>
     <% end %>
 
