@@ -1,14 +1,20 @@
 <h1><%= @project.name %></h1>
 
-<h3><%= @project.status %></h3>
+<h3><%= @project.status %></h3><br>
 <h3>Due Date Goal: </h3>
-<%= @project.due_date_goal %>
+<%= @project.due_date_goal %><br>
 <h3>Project Notes: </h3>
 <%= @project.notes %><br>
 <h3>Project Room: </h3>
+<% @project.room_id %><br>
+
+<h3>Project Tools: </h3>
+    <% @project.tools.each do |tool| %>
+       <p><li><%= tool.name %></li></p>
+    <% end %><br>
     
 
 
 <%= link_to "Edit Project", edit_project_path(@project) %><br>
-<%= link_to "Delete Project", project_path(@project), method: :delete %>
+<%= link_to "Delete Project", projects_path, method: :delete %>
 
