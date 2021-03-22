@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
   get '/projects/order_by_project_due_date' => 'projects#order_by_project_due_date'
-  resources :rooms
+  
   resources :projects
   resources :users
+  
+  resources :rooms do 
+    resources :projects, shallow: true
+  end 
+
+
+
   root to: 'sessions#welcome'
 
   get '/auth/google_oauth2/callback', to: 'sessions#omniauth'
