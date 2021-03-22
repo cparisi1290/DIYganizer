@@ -1,6 +1,6 @@
 <%= render partial: "layouts/error", locals: {object: @project}  %>
 
-<%= form_for(@project) do |f| %>
+<%= form_for([@room, @project]) do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %><br>
 
@@ -12,27 +12,20 @@
 
     <%= f.label :project_notes %>
     <%= f.text_area :notes %><br>
-
-    <h3>Select a Room</h3>
-    <%= f.collection_select :room_id, Room.all, :id, :name, :include_blank => true %> <br>
-    <h4>Or Create a New Room</h4>
-    <%= f.fields_for :room do |r| %>
-        <%= r.label :name %>
-        <%= r.text_field :name %><br>
-    <% end %><br>
-
-    <%= f.label "Tools:" %>
-   
-    <%= f.collection_check_boxes(:tool_ids, @tools, :id, :name) do |t| %>
-            <%= t.check_box %>
-            <%= t.label { t.text } %>
+    
+    <% if @room %>
+        <%= f.hidden_field :room_id, :value => @room.id %>
+    <% else %>
+        <%= render partial: "room_fields", locals: { f:f } %>
     <% end %>
+
+    <h3> Create New Tools: </h3>
 
     <%= f.fields_for :tools do |tool| %> <br>
-        <h3> Or create a new tool: </h3> 
+         
             <%= tool.label :name %>
-            <%= tool.text_field :name %> 
-    <% end %>
+            <%= tool.text_field :name %><br>
+    <% end %><br><br>
 
 
 
