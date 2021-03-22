@@ -1,46 +1,61 @@
 class ProjectsController < ApplicationController
+    before_action :redirect_if_not_logged_in
+    before_action :set_project, only: [:show, :edit, :update, :destroy] 
     layout "project"
 
     def index
-        @projects = Project.all
+        if params[:room_id] && @room = Room.find(params[:room_id])
+            @projects = @room.projects
+        else
+            @projects = current_user.projects.all
+        end
     end
 
     def show
-        @project = Project.find(params[:id])
     end
 
     def order_by_project_due_date
-        @projects = Project.order_by_project_due_date
+        @project_user = Project.filter_by_user_id(current_user.id)
+        @projects = current_user.projects.filter_by_goal_date(@project_user)
         render :index
     end
 
     def new
+        if params[:room_id] && @room = Room.find(params[:room_id])
+            @project = Project.new(room_id: params[:room_id])
+            # @rooms = Room.all
+            # @project = @room.projects.build
+            3.times { @project.tools.build }
+        else
         @project = Project.new
         @rooms = Room.all
         @project.build_room
-        @tools = Tool.all
-        @project.tools.build
+        3.times { @project.tools.build }
+        end
     end
 
     def create
-        @project = Project.new(project_params)
+        if params[:room_id] && room = Room.find_by_id(params[:room_id])
+            @room = Room.find(params[:room_id])
+            @project = current_user.projects.build(project_params)
+        end
+        @project = current_user.projects.build(project_params)
         @tool = Tool.create(params[:project][:tools_attributes][:name])
+    
         if @project.save
             if @tool.valid?
                 Builder.create(project_id: @project.id, tool_id: @tool.id)
             end
                redirect_to project_path(@project)
         else
-            redirect_to new_project_path
+            render :new
         end
     end
 
     def edit
-        @project = Project.find(params[:id])
     end
 
     def update
-        @project = Project.find(params[:id])
         @project.update(project_params)
         if @project.valid?
             redirect_to projects_path 
@@ -50,12 +65,15 @@ class ProjectsController < ApplicationController
     end
 
     def destroy
-        @project = Project.find(params[:id])
         @project.destroy
         redirect_to projects_path 
     end
 
     private
+
+    def set_project
+        @project = Project.find(params[:id])
+    end
 
     def project_params
         params.require(:project).permit(
