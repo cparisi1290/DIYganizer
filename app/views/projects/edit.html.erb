@@ -1,6 +1,6 @@
-<h1>Edit</h1>
+<h1>Edit Your Project</h1>
 
 <%= render partial: "form" %>
 
-<%%>
-<%= link_to "Delete Project", project_path(@project), method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= button_to "Delete Project", project_path(@project), method: :delete, data: { confirm: 'Are you sure?' } %>
+
