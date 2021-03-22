@@ -1,26 +1,13 @@
 class RoomsController < ApplicationController
+    before_action :redirect_if_not_logged_in
     layout "room"
 
     def index
-        @rooms = Room.all
+        @rooms = current_user.rooms.all
     end
 
     def show
         @room = Room.find(params[:id])
-    end
-
-    def new
-        @room = Room.new
-        @room.projects.build
-    end
-
-    def create
-        @room = Room.new(room_params)
-        if @room.save 
-            redirect_to room_path(@room)
-        else
-            render :new
-        end
     end
 
     private
