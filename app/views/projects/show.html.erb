@@ -1,20 +1,19 @@
-<h1><%= @project.name %></h1>
+<h1><%= @project.name.capitalize %></h1>
 
-<h3><%= @project.status %></h3><br>
-<h3>Due Date Goal: </h3>
-<%= @project.due_date_goal %><br>
-<h3>Project Notes: </h3>
-<%= @project.notes %><br>
-<h3>Project Room: </h3>
-<% @project.room_id %><br>
+Status: <%= @project.status %><br><br>
+Goal: <%= @project.due_date_goal %><br><br>
+Room: 
+<%= @project.room.name %><br><br>
 
-<h3>Project Tools: </h3>
+Tools: 
     <% @project.tools.each do |tool| %>
-       <p><li><%= tool.name %></li></p>
+       <li><%= tool.name %></li>
     <% end %><br>
+Project Notes: 
+<%= @project.notes %><br><br><br>
     
 
 
-<%= link_to "Edit Project", edit_project_path(@project) %><br>
-<%= link_to "Delete Project", projects_path, method: :delete %>
+<%= link_to "Edit Project", edit_room_project_path(@project) %><br>
+<%= button_to "Delete Project", project_path(@project), method: :delete, data: { confirm: 'Are you sure?' } %>
 
