@@ -15,8 +15,10 @@
       <a href="/projects">All Projects</a> |
       <%= button_to "Logout", logout_path, method: 'delete' %>
     <% end %>
+    <div class="reroute-text">
 
     
     <%= yield %>
   </body>
+  </div>
 </html>
