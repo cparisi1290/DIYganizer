@@ -3,7 +3,6 @@ class User < ApplicationRecord
 
     validates :name, presence: true, uniqueness: { case_sensitive: false }
     validates :email, presence: true, uniqueness: true
-
     has_many :projects
     has_many :rooms, through: :projects
 
