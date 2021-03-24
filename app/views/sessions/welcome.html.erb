@@ -3,10 +3,11 @@
     <h3> <%= link_to 'Login', '/login' %> OR <%= link_to 'Signup', '/signup' %> to get started </h3>
     <%= button_to "Log in with Google", '/auth/google_oauth2'  %>
 <% else %><br>
-    <h1><%= current_user.name %>, Welcome to Your Projects Dashboard</h1>
-    <h3>What would you like to do?</h3>
+    <h1><%= current_user.name %>, </h1>
+    <h1>Welcome to Your Projects Dashboard!</h1><br><br>
+    <h3>What would you like to do?</h3><br>
 
-    <h4><%= link_to "View Your Rooms", rooms_path %></h4>
-    <h4><%= link_to "View Your Projects", projects_path %></h4>
-    <h4><%= link_to "Create a New Project", new_project_path %></h4>
+    <h4><%= link_to "~ View Your Rooms ~", rooms_path %></h4>
+    <h4><%= link_to "~ View Your Projects ~", projects_path %></h4>
+    <h4><%= link_to "~ Create a New Project ~", new_project_path %></h4>
 <% end %>

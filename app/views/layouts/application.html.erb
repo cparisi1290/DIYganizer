@@ -7,20 +7,24 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>  </head>
-    <link rel="stylesheet" href="/stylesheets/main.css" />
-    <link rel="stylesheet" href="/stylesheets/bootstrap.css" />
-    <link rel="stylesheet" href="/stylesheets/bootstrap-responsive.min.css" />
-    <link rel="stylesheet" href="/stylesheets/bootstrap-responsive.css" />
-    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
+    <%# <link rel="stylesheet" href="/stylesheets/main.css" /> %>
+    <%# <link rel="stylesheet" href="/stylesheets/bootstrap.css" /> %>
+    <%# <link rel="stylesheet" href="/stylesheets/bootstrap-responsive.min.css" /> %>
+    <%# <link rel="stylesheet" href="/stylesheets/bootstrap-responsive.css" /> %>
+    <%# <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" /> %>
 
-  <body>
+  <body> 
+  
     <% if logged_in? %>
       <br><%= button_to "Logout", logout_path, method: 'delete' %>
     <% end %>
-    <div class="reroute-text">
 
-    
-    <%= yield %>
+    <div class="reroute-text">
+    <div class="background">
+      <div class="transbox">
+        <%= yield %>
+    </div>
+</div>
   </body>
 </div>
 </html>

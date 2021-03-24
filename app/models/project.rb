@@ -12,6 +12,12 @@ class Project < ApplicationRecord
 
     # accepts_nested_attributes_for :room
 
+    # def tool_attributes=(hash_of_attributes)
+    #     if !hash_of_attributes[:name].blank?
+    #        self.tool = Tool.find_or_create_by(hash_of_attributes)
+    #     end
+    # end
+
     def room_attributes=(hash_of_attributes)
         if !hash_of_attributes[:name].blank?
            self.room = Room.find_or_create_by(hash_of_attributes)

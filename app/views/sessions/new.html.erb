@@ -1,5 +1,5 @@
 <h1>Log In Here!</h1>
-
+<div class="text">
 <%= form_for(@user, url: '/login') do |f|%>
     <%= f.label :email %>
     <%= f.email_field :email %><br><br>
@@ -10,3 +10,4 @@
 <% end %>
 
 <h4>Or click here to <%= button_to "Log in with Google", '/auth/google_oauth2'  %></h4>
+</div>

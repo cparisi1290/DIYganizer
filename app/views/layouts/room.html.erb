@@ -9,17 +9,21 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>  </head>
 
   <body>
-    <% if logged_in? %>
-      <br><a href="/">Home</a> |
-      <a href="/rooms">All Rooms</a> |
-      <a href="/projects">All Projects</a> |
-
+    <div class="text">
+      <% if logged_in? %>
+        <b><br><a href="/">Home</a> |
+        <a href="/rooms">All Rooms</a> |
+        <a href="/projects">All Projects</a> 
+        </b>
+      </div>
       <%= button_to "Logout", logout_path, method: 'delete' %>
     <% end %>
     <div class="reroute-text">
-
-    
-    <%= yield %>
+    <div class="background">
+      <div class="transbox">
+        <%= yield %>
+    </div>
+  </div>
   </body>
   </div>
 </html>

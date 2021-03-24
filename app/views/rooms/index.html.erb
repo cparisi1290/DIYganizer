@@ -1,7 +1,5 @@
 <h1>Your Rooms</h1>
 
-<ul>
-    <% @rooms.each do |room| %>
-        <h3><li><%= link_to room.name.capitalize, room_projects_path(room) %></h3></li><br>
-    <% end %>
-</ul>
+<% @rooms.each do |room| %>
+    <h3><%= link_to room.name.capitalize, room_projects_path(room) %></h3><br>
+<% end %>

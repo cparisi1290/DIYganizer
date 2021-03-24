@@ -1,17 +1,18 @@
 <%= display_index_header %>
-<% if params[:room_id] && @room = Room.find(params[:room_id]) %>
-        <%= link_to "Create a New Project", new_room_project_path %>
-<% else %>
-        <%= link_to "Create a New Project", new_project_path %> | 
-        <%= link_to "Sort Projects by Due Date", projects_order_by_project_due_date_path %>
-<% end %><br><br>
+<div class="text">
+        <% if params[:room_id] && @room = Room.find(params[:room_id]) %>
+                <b><%= link_to "Create a New Project", new_room_project_path %></b>
+        <% else %>
+                <b><%= link_to "Create a New Project", new_project_path %> | </b>
+                <b><%= link_to "Sort Projects by Due Date", projects_order_by_project_due_date_path %></b>
+        <% end %><br><br>
 
-<ul>
-    <% @projects.each do |project| %>
-        <h3><li><%= link_to project.name.capitalize, project_path(project) %></h3></li>
-        Goal: <%= project.due_date_goal %><br>
-        Status: <%= project.status %><br><br>
-        
+
+    <% current_user.projects.each do |project| %>
+        <h3><%= link_to project.name.capitalize, project_path(project) %></h3>
+        <b>Goal:</b> <%= project.due_date_goal %><br></b>
+        <b>Status:</b> <%= project.status %><br><br></b>
+
 
     <% end %>
-</ul>
+</div>

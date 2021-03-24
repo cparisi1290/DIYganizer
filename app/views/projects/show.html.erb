@@ -1,17 +1,18 @@
 <h1><%= @project.name.capitalize %></h1>
+<div class="text">
+    <b>Status:</b> <%= @project.status %><br><br>
+    <b>Goal:</b> <%= @project.due_date_goal %><br><br>
+    <b>Room:</b> 
+    <%= @project.room.name %><br><br>
 
-Status: <%= @project.status %><br><br>
-Goal: <%= @project.due_date_goal %><br><br>
-Room: 
-<%= @project.room.name %><br><br>
-
-Tools: 
-    <% @project.tools.each do |tool| %>
-       <li><%= tool.name %></li>
-    <% end %><br>
-Project Notes: 
-<%= @project.notes %><br><br><br>
-    
+    <b>Tools:</b> 
+        <% @project.tools.each do |tool| %>
+        <li><%= tool.name %></li>
+        <% end %><br>
+    <b>Project Notes:</b>
+    <%= @project.notes %><br><br><br>
+</div>
+        
 
 
-<%= link_to "Edit Project", edit_project_path(@project) %><br>
+<b><%= link_to "Edit Project", edit_project_path(@project) %><br></b>
