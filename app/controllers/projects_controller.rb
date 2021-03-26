@@ -46,7 +46,7 @@ class ProjectsController < ApplicationController
             if @tool.valid?
                 Builder.create(project_id: @project.id, tool_id: @tool.id)
             end
-               redirect_to project_path(@project)
+            redirect_to project_path(@project)
         else
             render :new
         end

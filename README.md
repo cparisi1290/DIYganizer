@@ -5,7 +5,7 @@
 Welcome to the DIYganizer - a Rails Web Application! A simple project management app that allows a user to create an account, login and logout of their account or use their Google credentials to login. The user can view all projects not started, in progress and completed. They can sort projects by the due date. User can create, edit and delete projects to help them organize their home to-dos.
 
 ## Installation
-* Clone this repo
+         Clone this repo
 * Run bundle install
 * Run rails s
 * Open your browser to localhost:3000
