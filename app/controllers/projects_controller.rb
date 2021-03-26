@@ -58,7 +58,7 @@ class ProjectsController < ApplicationController
     def update
         @project.update(project_params)
         if @project.valid?
-            redirect_to projects_path 
+            redirect_to project_path(@project)
         else
             render :edit 
         end
