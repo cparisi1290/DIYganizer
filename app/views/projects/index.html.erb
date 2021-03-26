@@ -7,12 +7,14 @@
                 <b><%= link_to "Sort Projects by Due Date", projects_order_by_project_due_date_path %></b>
         <% end %><br><br>
 
+        
+        <% @projects.each do |project| %>
+                <% if project.user_id == current_user.id %>
+                        <h3><%= link_to project.name.capitalize, project_path(project) %></h3>
+                        <b>Goal:</b> <%= project.due_date_goal %><br></b>
+                        <b>Status:</b> <%= project.status %><br><br></b>
+                <% end %>
+        <% end %>
+   
 
-    <% current_user.projects.each do |project| %>
-        <h3><%= link_to project.name.capitalize, project_path(project) %></h3>
-        <b>Goal:</b> <%= project.due_date_goal %><br></b>
-        <b>Status:</b> <%= project.status %><br><br></b>
-
-
-    <% end %>
 </div>

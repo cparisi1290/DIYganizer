@@ -1,5 +1,5 @@
 <%= render partial: "layouts/error", locals: {object: @project}  %>
-
+<div class="text">
 <%= form_for([@room, @project]) do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %><br>
@@ -31,3 +31,4 @@
 
     <%= f.submit %>
 <% end %>
+</div>

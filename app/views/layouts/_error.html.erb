@@ -1,9 +1,11 @@
-<div class="reroute-text">
-<% if object.errors.any? %>
-    <ul>
-        <% object.errors.full_messages.each do |error| %>
-        <li><%= error %></li>
-        <% end %>
-    </ul>
-<% end %> 
+<div class="text">
+    <div class="reroute-text">
+    <% if object.errors.any? %>
+        <ul>
+            <% object.errors.full_messages.each do |error| %>
+            <li><%= error %></li>
+            <% end %>
+        </ul>
+    <% end %> 
+    </div>
 </div>

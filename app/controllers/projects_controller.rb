@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
 
     def order_by_project_due_date
         @project_user = Project.filter_by_user_id(current_user.id)
-        @projects = current_user.projects.filter_by_goal_date(@project_user)
+        @projects = Project.filter_by_goal_date(@project_user)
         render :index
     end
 

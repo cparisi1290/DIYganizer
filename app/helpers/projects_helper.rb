@@ -2,7 +2,7 @@ module ProjectsHelper
 
     def display_index_header
         if @room
-             content_tag(:h1, "#{@room.name}  Projects")
+             content_tag(:h1, "#{@room.name.capitalize}  Projects")
         else
              content_tag(:h1, "All Projects")
         end
@@ -10,7 +10,7 @@ module ProjectsHelper
 
    def display_new_header
         if @room
-            content_tag(:h1, "Create a #{@room.name} Project")
+            content_tag(:h1, "Create a #{@room.name.capitalize} Project")
         else
             content_tag(:h1, "Create a Project")
         end
